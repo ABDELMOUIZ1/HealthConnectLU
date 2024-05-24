@@ -1,0 +1,71 @@
+<div class="header-container">
+  <app-header></app-header>
+</div>
+<div class="container">
+  <div class="main-content">
+    <div class="registration-box">
+      <h2>Saisissez L'Authentification Autant Que Quoi Pour Continuer</h2>
+      <!-- Error message -->
+      <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+      <!-- Success message -->
+      <div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>
+
+      <!-- Doctor Registration Form -->
+      <form *ngIf="userType === 'doctor'" (ngSubmit)="onSubmit()">
+        <input type="text" [(ngModel)]="doctorData.doctorFirstName" name="doctorFirstName" placeholder="Prénom" required>
+        <input type="text" [(ngModel)]="doctorData.doctorLastName" name="doctorLastName" placeholder="Nom de famille" required>
+        <input type="number" [(ngModel)]="doctorData.age" name="doctorAge" placeholder="Age" required>
+        <select [(ngModel)]="doctorData.title" name="doctorTitle" required>
+          <option value="" disabled selected>Title</option>
+          <option value="MR">Mr</option>
+          <option value="MRS">Mrs</option>
+          <option value="MISS">Miss</option>
+          <option value="MS">Ms</option>
+        </select>
+        <input type="text" [(ngModel)]="doctorData.cityOfBirth" name="doctorCityOfBirth" placeholder="Lieu de naissance" required>
+        <input type="text" [(ngModel)]="doctorData.address" name="doctorAddress" placeholder="Adresse" required>
+        <input type="text" [(ngModel)]="doctorData.currentCity" name="doctorCurrentCity" placeholder="Ville actuelle" required>
+        <input type="email" [(ngModel)]="doctorData.doctorEmail" name="doctorEmail" placeholder="Email" required>
+        <input type="password" [(ngModel)]="doctorData.doctorPassword" name="doctorPassword" placeholder="Choisissez un mot de passe" required>
+        <input type="password" [(ngModel)]="confirmPassword" name="doctorConfirmPassword" placeholder="Confirmer votre mot de passe" required>
+        <input type="text" [(ngModel)]="doctorData.doctorContact" name="doctorContact" placeholder="Téléphone portable" required>
+        <input type="text" [(ngModel)]="doctorData.officeAddress" name="doctorOfficeAddress" placeholder="Office Address" required>
+        <select [(ngModel)]="doctorData.specialization" name="doctorSpecialization" required>
+          <option value="Allergy_and_Immunology">Allergy and Immunology</option>
+          <option value="Anesthesiology">Anesthesiology</option>
+          <option value="Dermatology">Dermatology</option>
+          <!-- Add other specializations here -->
+        </select>
+        <input type="time" [(ngModel)]="doctorData.startTimeOfWork" name="doctorStartTimeOfWork" required>
+        <input type="time" [(ngModel)]="doctorData.endTimeOfWork" name="doctorEndTimeOfWork" required>
+        <button type="submit">S'INSCRIRE</button>
+      </form>
+
+      <!-- Patient Registration Form -->
+      <form *ngIf="userType === 'patient'" (ngSubmit)="onSubmit()">
+        <input type="text" [(ngModel)]="patientData.patientFirstName" name="patientFirstName" placeholder="Prénom" required>
+        <input type="text" [(ngModel)]="patientData.patientLastName" name="patientLastName" placeholder="Nom de famille" required>
+        <input type="number" [(ngModel)]="patientData.age" name="patientAge" placeholder="Age" required>
+        <select [(ngModel)]="patientData.title" name="patientTitle" required>
+          <option value="" disabled selected>Title</option>
+          <option value="MR">Mr</option>
+          <option value="MRS">Mrs</option>
+          <option value="MISS">Miss</option>
+          <option value="MS">Ms</option>
+        </select>
+        <input type="text" [(ngModel)]="patientData.cityOfBirth" name="patientCityOfBirth" placeholder="Lieu de naissance" required>
+        <input type="text" [(ngModel)]="patientData.address" name="patientAddress" placeholder="Adresse" required>
+        <input type="text" [(ngModel)]="patientData.currentCity" name="patientCurrentCity" placeholder="Ville actuelle" required>
+        <input type="email" [(ngModel)]="patientData.patientEmail" name="patientEmail" placeholder="Email" required>
+        <input type="password" [(ngModel)]="patientData.patientPassword" name="patientPassword" placeholder="Choisissez un mot de passe" required>
+        <input type="password" [(ngModel)]="confirmPassword" name="patientConfirmPassword" placeholder="Confirmer votre mot de passe" required>
+        <input type="text" [(ngModel)]="patientData.patientContact" name="patientContact" placeholder="Téléphone portable" required>
+        <button type="submit">S'INSCRIRE</button>
+      </form>
+    </div>
+  </div>
+  <footer>
+    <img src="assets/images/doc1.png" alt="Doctor Image" class="doctor-image">
+    <img src="assets/images/doc1.png" alt="Doctor Image" class="doctor-image">
+  </footer>
+</div>

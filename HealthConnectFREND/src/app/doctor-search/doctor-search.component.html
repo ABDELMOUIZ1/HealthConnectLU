@@ -1,0 +1,26 @@
+<!-- src/app/doctor-search/doctor-search.component.html -->
+<div class="header-container">
+  <app-header></app-header>
+  <!-- Insert this right after your navbar in the doctor-search.component.html -->
+  <div class="hero-section">
+    <div class="hero-content">
+      <div class="search-bar-container">
+        <h1>Trouvez un rendez-vous avec un laboratoire</h1>
+        <div class="search-bar">
+          <input type="text" placeholder="Nom" [(ngModel)]="searchDTO.doctorFirstName" name="doctorFirstName">
+          <input type="text" placeholder="Spécialité" [(ngModel)]="searchDTO.specialization" name="specialization">
+          <input type="text" placeholder="Établissement" [(ngModel)]="searchDTO.officeAddress" name="officeAddress">
+          <input type="text" placeholder="Où?" [(ngModel)]="searchDTO.currentCity" name="currentCity">
+          <button (click)="onSearch()">RECHERCHER</button>
+        </div>
+      </div>
+      <div class="doctor-image">
+        <img src="assets/images/doc1.png" alt="Doctor Image">
+      </div>
+    </div>
+
+  </div>
+  <!-- Add this line in your app component or any other parent component -->
+</div>
+
+<app-specializations></app-specializations>

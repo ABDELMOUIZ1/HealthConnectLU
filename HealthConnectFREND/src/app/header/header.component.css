@@ -1,0 +1,76 @@
+.header-container {
+  background-color: #007ac1;
+  color: white;
+  position: relative;
+  margin: 0;
+  padding: 0 20px 10px 0;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap; /* Prevent wrapping to ensure items stay in one line */
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-links a, .nav-links .user-info {
+  color: white;
+  text-decoration: none;
+  white-space: nowrap; /* Prevent names from breaking into multiple lines */
+}
+
+.logo img {
+  height: 50px; /* Adjust this value to fit your design */
+  width: auto; /* Maintain aspect ratio */
+  max-width: 100%; /* Ensure the image does not exceed the container */
+}
+
+.user-info {
+  position: relative;
+  cursor: pointer; /* Change cursor to pointer to indicate dropdown interactivity */
+}
+
+.dropbtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: white; /* Ensure the dropdown button text is white */
+  outline: none;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  right: 0; /* Align the dropdown to the right */
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+/* Show dropdown content when the dropdown button is clicked */
+.user-info:hover .dropdown-content {
+  display: block;
+}
+
+.nav-links .user-info .dropdown-content {
+  display: block;
+}

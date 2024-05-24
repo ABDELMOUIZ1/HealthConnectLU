@@ -1,0 +1,26 @@
+<div class="header-container">
+  <nav class="navbar">
+    <div class="logo">
+      <div class="logo-image" (click)="navigateToSearch()">
+        <img src="assets/images/logo.png" alt="Logo Image">
+      </div>
+    </div>
+    <div class="nav-links">
+      <a href="#">Centre d'aide</a>
+      <a href="#">Mes messages</a>
+      <a href="#">Mes rendez-vous</a>
+      <a href="#">Mes documents</a>
+      <div class="user-info" *ngIf="isLoggedIn">
+        {{ userName }}
+        <button class="dropbtn" (click)="toggleDropdown()">▼</button>
+        <div class="dropdown-content" *ngIf="isDropdownOpen">
+          <a routerLink="/profile">Profile</a>
+          <a (click)="logout()">Se déconnecter</a>
+        </div>
+      </div>
+      <div *ngIf="!isLoggedIn">
+        <a routerLink="/login">Se connecter</a>
+      </div>
+    </div>
+  </nav>
+</div>

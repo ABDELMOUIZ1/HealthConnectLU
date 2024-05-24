@@ -1,0 +1,16 @@
+<div class="header-container">
+  <app-header></app-header>
+</div>
+<div class="doctor-list-container">
+  <h2>Liste des médecins</h2>
+  <div *ngFor="let doctor of doctors" class="doctor-card">
+    <h3>{{ doctor.title }} {{ doctor.doctorFirstName }} {{ doctor.doctorLastName }}</h3>
+    <p>Spécialité: {{ doctor.specialization }}</p>
+    <p>Adresse: {{ doctor.officeAddress }}</p>
+    <p>Contact: {{ doctor.doctorContact }}</p>
+    <p>Email: {{ doctor.doctorEmail }}</p>
+    <p>Ville actuelle: {{ doctor.currentCity }}</p>
+    <!-- Add button to take appointment -->
+    <button (click)="navigateToAppointment(doctor)">Prendre Rendez-Vous</button>
+  </div>
+</div>

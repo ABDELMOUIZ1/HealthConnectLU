@@ -1,0 +1,15 @@
+<div class="specializations-section">
+  <h2>Chercher Docteur Avec Spécialité</h2>
+  <div class="specializations-container">
+    <div *ngFor="let spec of visibleSpecializations" (click)="searchBySpecialization(spec)" class="specialization-card">
+      <img src="assets/images/{{spec | lowercase}}.png" alt="{{ spec }}">
+      <div class="specialization-name">{{ spec }}</div>
+      <button class="get-quote-btn">View List</button>
+    </div>
+  </div>
+  <div class="button-container">
+    <button *ngIf="showMoreAvailable" class="load-more" (click)="showMore()">Plus</button>
+    <button *ngIf="visibleSpecializations.length > 6" class="show-less" (click)="showLess()">Moins</button>
+  </div>
+  <div *ngIf="noDoctorsFound" class="no-doctors">No doctors found in this specialization.</div>
+</div>

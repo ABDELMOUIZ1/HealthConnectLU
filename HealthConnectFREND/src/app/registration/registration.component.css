@@ -1,0 +1,141 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f2f5;
+  margin: 0;
+  padding: 0;
+}
+.header-container {
+  background-color: #007ac1;
+  color: white;
+  position: relative;
+  margin: 0px;
+  padding: 0px 20px 10px 0px;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  background-color: #0097ea;
+}
+
+.logo {
+  height: 50px;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+.help-button, .login-button, .dropbtn {
+  background-color: #004d40;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  background-color: #0097ea;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.registration-box {
+  background: #e0f7fa;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 400px;
+  margin-top: 20px;
+}
+
+.registration-box h2 {
+  margin-bottom: 20px;
+}
+
+.registration-box input[type="text"],
+.registration-box input[type="email"],
+.registration-box input[type="password"] {
+  width: calc(100% - 22px);
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.gender-options {
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.registration-box .options {
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.registration-box button {
+  background-color: #0097ea;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: calc(100% - 22px);
+  margin: 10px 0;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 20px;
+}
+
+.doctor-image {
+  height: 150px;
+}

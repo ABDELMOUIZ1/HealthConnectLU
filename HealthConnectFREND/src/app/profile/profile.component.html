@@ -1,0 +1,99 @@
+<div class="header-container">
+  <app-header></app-header>
+</div>
+
+<div class="profile-container">
+  <div class="profile-header">
+    <h1>Mon profil</h1>
+  </div>
+  <form (ngSubmit)="onSubmit()" class="profile-form">
+    <div class="form-group">
+      <label for="firstName">Nom:</label>
+      <input type="text" id="firstName" [(ngModel)]="profile.patientFirstName" name="firstName" *ngIf="!isDoctor">
+      <input type="text" id="firstName" [(ngModel)]="profile.doctorFirstName" name="firstName" *ngIf="isDoctor">
+    </div>
+    <div class="form-group">
+      <label for="lastName">Prénom:</label>
+      <input type="text" id="lastName" [(ngModel)]="profile.patientLastName" name="lastName" *ngIf="!isDoctor">
+      <input type="text" id="lastName" [(ngModel)]="profile.doctorLastName" name="lastName" *ngIf="isDoctor">
+    </div>
+    <div class="form-group">
+      <label>Genre:</label>
+      <div class="radio-group">
+        <input type="radio" id="male" [(ngModel)]="profile.title" name="title" [value]="'MR'" [checked]="isMale()">
+        <label for="male">M</label>
+        <input type="radio" id="female" [(ngModel)]="profile.title" name="title" [value]="'MISS'" [checked]="isFemale()">
+        <label for="female">F</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="age">Age:</label>
+      <input type="number" id="age" [(ngModel)]="profile.age" name="age">
+    </div>
+    <div class="form-group">
+      <label for="cityOfBirth">Lieu de naissance:</label>
+      <input type="text" id="cityOfBirth" [(ngModel)]="profile.cityOfBirth" name="cityOfBirth">
+    </div>
+    <div class="form-group">
+      <label for="address">Adresse:</label>
+      <input type="text" id="address" [(ngModel)]="profile.address" name="address">
+    </div>
+    <div class="form-group">
+      <label for="contact">Téléphone:</label>
+      <input type="text" id="contact" [(ngModel)]="profile.patientContact" name="contact" *ngIf="!isDoctor">
+      <input type="text" id="contact" [(ngModel)]="profile.doctorContact" name="contact" *ngIf="isDoctor">
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" [(ngModel)]="profile.patientEmail" name="email" *ngIf="!isDoctor">
+      <input type="email" id="email" [(ngModel)]="profile.doctorEmail" name="email" *ngIf="isDoctor">
+    </div>
+    <div class="form-group">
+      <label for="currentCity">Ville actuelle:</label>
+      <input type="text" id="currentCity" [(ngModel)]="profile.currentCity" name="currentCity">
+    </div>
+
+
+    <!-- Doctor-specific fields -->
+    <div class="form-group" *ngIf="isDoctor">
+      <label for="officeAddress">Adresse du cabinet:</label>
+      <input type="text" id="officeAddress" [(ngModel)]="profile.officeAddress" name="officeAddress">
+    </div>
+    <div class="form-group" *ngIf="isDoctor">
+      <label for="specialization">Spécialisation:</label>
+      <select id="specialization" [(ngModel)]="profile.specialization" name="specialization">
+        <option *ngFor="let spec of specializations" [value]="spec">{{ spec }}</option>
+      </select>
+    </div>
+    <div class="form-group" *ngIf="isDoctor">
+      <label for="startTimeOfWork">Heure de début de travail:</label>
+      <input type="text" id="startTimeOfWork" [(ngModel)]="profile.startTimeOfWork" name="startTimeOfWork">
+    </div>
+    <div class="form-group" *ngIf="isDoctor">
+      <label for="endTimeOfWork">Heure de fin de travail:</label>
+      <input type="text" id="endTimeOfWork" [(ngModel)]="profile.endTimeOfWork" name="endTimeOfWork">
+    </div>
+    <!-- End of doctor-specific fields -->
+
+
+
+    <!-- Change Password Section -->
+    <div class="form-group">
+      <label for="Password">Ancien mot de passe:</label>
+      <input type="password" id="password" [(ngModel)]="profile.patientPassword" name="password" *ngIf="!isDoctor">
+      <input type="password" id="password" [(ngModel)]="profile.doctorPassword" name="password" *ngIf="isDoctor">
+    </div>
+    <div class="form-group">
+      <label for="newPassword">Nouveau mot de passe:</label>
+      <input type="password" id="newPassword" [(ngModel)]="profile.newPassword" name="newPassword">
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" class="btn btn-primary">Enregistrer</button>
+      <button type="button" class="btn btn-secondary" (click)="logout()">Déconnexion</button>
+      <button type="button" class="btn btn-danger" (click)="deleteAccount()">Supprimer compte</button>
+    </div>
+  </form>
+</div>
+
+<app-footer></app-footer>

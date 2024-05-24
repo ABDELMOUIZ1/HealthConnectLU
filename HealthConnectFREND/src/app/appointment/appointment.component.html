@@ -1,0 +1,28 @@
+<div class="header-container">
+  <app-header></app-header>
+<div class="appointment-container">
+  <div class="doctor-info">
+    <img src="assets/images/Avatar.png" alt="Doctor Image">
+    <h2>{{ doctorFirstName }} {{doctorLastName}}</h2>
+    <p>{{specialization}}</p>
+  </div>
+  <div class="appointment-form">
+    <h3>Demander un rendez-vous avec {{ doctorFirstName }} {{doctorLastName}}</h3>
+    <label for="appointment-date">Sélectionnez la date souhaitée</label>
+    <input type="date" id="appointment-date" (change)="onDateSelected($event)">
+    <div class="available-slots" *ngIf="availableSlots.length > 0">
+      <h4>Quelle heure vous convient le mieux ?</h4>
+      <div *ngFor="let slot of availableSlots" (click)="onSlotSelected(slot)" [class.selected]="slot === selectedSlot">
+        {{ slot.startTime }} - {{ slot.endTime }}
+      </div>
+    </div>
+    <div *ngIf="availableSlots.length === 0 && selectedDate">
+      <p>Aucun créneau disponible pour la date sélectionnée.</p>
+    </div>
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
+    <button (click)="onSubmit()" [disabled]="!selectedSlot">Accepter</button>
+  </div>
+</div>
+</div>
